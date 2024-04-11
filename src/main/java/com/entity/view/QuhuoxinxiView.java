@@ -1,0 +1,36 @@
+package com.entity.view;
+
+import com.entity.QuhuoxinxiEntity;
+
+import com.baomidou.mybatisplus.annotations.TableName;
+import org.apache.commons.beanutils.BeanUtils;
+import java.lang.reflect.InvocationTargetException;
+
+import java.io.Serializable;
+ 
+
+/**
+ * 取货信息
+ * 后端返回视图实体辅助类   
+ * （通常后端关联的表或者自定义的字段需要返回使用）
+ * @author 
+ * @email 
+ * @date 2020-12-02 20:04:37
+ */
+@TableName("quhuoxinxi")
+public class QuhuoxinxiView  extends QuhuoxinxiEntity implements Serializable {
+	private static final long serialVersionUID = 1L;
+
+	public QuhuoxinxiView(){
+	}
+ 
+ 	public QuhuoxinxiView(QuhuoxinxiEntity quhuoxinxiEntity){
+ 	try {
+			BeanUtils.copyProperties(this, quhuoxinxiEntity);
+		} catch (IllegalAccessException | InvocationTargetException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+ 		
+	}
+}
